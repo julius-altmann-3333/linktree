@@ -3,13 +3,22 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 20px;
+  gap: clamp(1rem, 2vw, 1.5rem);
+  min-height: 100vh;
+  margin: 0;
+  padding: 1rem;
+  box-sizing: border-box;
+}
 
 .selectors {
-  width: 300px;
-  height: 120px;
+  width: min(90%, 300px);
+  height: clamp(80px, 15vw, 120px);
   border: 1px solid black;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
 }
 
 a {
@@ -17,3 +26,18 @@ a {
   color: inherit;
 }
 
+/* Media query for smaller screens */
+@media screen and (max-width: 600px) {
+  .selectors {
+    width: 95%;
+    height: clamp(60px, 12vw, 100px);
+  }
+}
+
+/* Media query for larger screens */
+@media screen and (min-width: 1200px) {
+  .selectors {
+    width: min(25%, 350px);
+    height: clamp(100px, 10vw, 140px);
+  }
+}
